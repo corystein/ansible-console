@@ -1,4 +1,20 @@
-# ansible-console
+# Ansible Console
+
+This repository contains files for a PoC project called Ansible Console. The project is intended to be similar to Ansible Tower.
+
+- [Releases](https://github.com/corystein/ansible-console/releases)
+
+## Build Status
+
+[![CircleCI](https://circleci.com/gh/corystein/ansible-console.svg?style=svg)](https://circleci.com/gh/corystein/ansible-console)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/56c058484b334f98b5ff8eb31f519e0a)](https://www.codacy.com/app/corystein/ansible-console?utm_source=github.com&utm_medium=referral&utm_content=corystein/ansible-console&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/56c058484b334f98b5ff8eb31f519e0a)](https://www.codacy.com/app/corystein/ansible-console?utm_source=github.com&utm_medium=referral&utm_content=corystein/ansible-console&utm_campaign=Badge_Coverage)
+
+## Contributing
+
+PR's & UX reviews are welcome!
+
+Please follow the [contribution](https://github.com/corystein/ansible-console/CONTRIBUTING.md) guide. Any questions, please open an issue.
 
 ## License
 
