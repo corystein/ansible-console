@@ -5,11 +5,11 @@ aliases:
   - &golang-image
     image: circleci/golang:1.10
 
-  - &working-dir /go/src/github.com/ansible-semaphore/semaphore
+  - &working-dir /go/src/github.com/corystein/ansible-console
 
   - &store-bin-artifacts
     store_artifacts:
-      path: /go/src/github.com/ansible-semaphore/semaphore/bin
+      path: /go/src/github.com/corystein/ansible-console/bin
 
   - &install-task-binary
     run:
@@ -128,7 +128,7 @@ jobs:
       - run: task compile:be
       - run: task compile:api:hooks
       - store_artifacts:
-          path: /go/src/github.com/ansible-semaphore/semaphore/.dredd/compiled_hooks
+          path: /go/src/github.com/corystein/ansible-console/.dredd/compiled_hooks
 
   # Run goverage and post results
   test:golang:
@@ -148,9 +148,9 @@ jobs:
       - run: task test
       - run: godacov -t "${CODACY_TOKEN}" -r ./coverage.out -c "${CIRCLE_SHA1}" || true
       - store_test_results:
-          path: /go/src/github.com/ansible-semaphore/semaphore/coverage.out
+          path: /go/src/github.com/corystein/ansible-console/coverage.out
       - store_artifacts:
-          path: /go/src/github.com/ansible-semaphore/semaphore/coverage.out
+          path: /go/src/github.com/corystein/ansible-console/coverage.out
 
   test:integration:
     machine: true
@@ -212,7 +212,7 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: context=prod tag=latest task docker:build
       - run: tag=latest task docker:push
-      - run: docker tag ansiblesemaphore/semaphore:latest ansiblesemaphore/semaphore:$CIRCLE_TAG
+      - run: docker tag corystein/ansible-console:latest corystein/ansible-console:$CIRCLE_TAG
       - run: tag=$CIRCLE_TAG task docker:push
 
   # For releases to work in the ci you will need to have the following env vars set
